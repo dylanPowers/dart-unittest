@@ -258,7 +258,7 @@ class HtmlEnhancedConfiguration extends SimpleConfiguration {
     }
 
     addRowElement('${test_.id}', '${test_.result.toUpperCase()}',
-        '${test_.description}. ${HTML_ESCAPE.convert(test_.message)}');
+        '<pre>${test_.description}.\n${HTML_ESCAPE.convert(test_.message)}</pre>');
 
     if (test_.stackTrace != null) {
       addRowElement('', '',
@@ -402,8 +402,9 @@ class HtmlEnhancedConfiguration extends SimpleConfiguration {
     width: 4em;
   }
 
-  .unittest-row-description
+  .unittest-row-description pre
   {
+    margin: 0 0 4px 0;
   }
 
   ''';
